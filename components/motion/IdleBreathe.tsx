@@ -23,7 +23,8 @@ export function IdleBreathe({
 
   return (
     <motion.div
-      className="inline-block"
+      className="inline-block will-change-transform"
+      style={{ transform: "translateZ(0)" }}
       animate={{ scale: [1, scaleTo, 1] }}
       transition={{
         duration,

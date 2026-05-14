@@ -56,6 +56,12 @@ body {
   color: var(--color-papel);
 }
 
+/* Containment de sections — isola repaints. Cada section anima sem invalidar layout das outras.
+   `layout` + `paint` são seguros aqui (nada dentro de section é position:fixed que precisa transbordar). */
+main > section {
+  contain: layout paint;
+}
+
 /* Page-load fade-in. Respeita reduced-motion via media query acima. */
 @keyframes nashpages-page-in {
   from { opacity: 0; }
