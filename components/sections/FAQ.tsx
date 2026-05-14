@@ -25,7 +25,7 @@ const items: FaqItem[] = [
   },
   {
     q: "Tem manutenção depois?",
-    a: "30 dias inclusos (Express/Essencial) ou 60 dias (Premium) pra correção de bugs e ajustes finais. Manutenção mensal a R$ 250-400 (1 mudança simples + monitoramento).",
+    a: "30 dias inclusos (Express/Essencial) ou 60 dias (Premium) pra correção de bugs e ajustes finais. Manutenção mensal opcional — valor sob consulta (1 mudança simples + monitoramento).",
   },
   {
     q: "Aceita pagamento parcelado?",

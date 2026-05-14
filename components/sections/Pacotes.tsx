@@ -16,7 +16,7 @@ const pacotes: Pacote[] = [
   {
     num: "§ 03.1",
     name: "Express",
-    price: "R$ 1.500",
+    price: "Sob consulta",
     time: "5 DIAS",
     ideal: "Negócio local que precisa sair do zero rápido.",
     deliverables: [
@@ -29,7 +29,7 @@ const pacotes: Pacote[] = [
   {
     num: "§ 03.2",
     name: "Essencial",
-    price: "R$ 2.800 — 3.500",
+    price: "Sob consulta",
     time: "10 A 14 DIAS",
     ideal: "Autônomo ou marca com identidade própria.",
     deliverables: [
@@ -42,7 +42,7 @@ const pacotes: Pacote[] = [
   {
     num: "§ 03.3",
     name: "Premium",
-    price: "R$ 6.500 — 9.000",
+    price: "Sob consulta",
     time: "3 A 4 SEMANAS",
     ideal: "Clínica, B2B ou marca que precisa de site real.",
     deliverables: [

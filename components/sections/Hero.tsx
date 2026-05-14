@@ -4,7 +4,7 @@ import { HapticLink } from "@/components/HapticLink";
 
 const marginalia = [
   { num: "§ 01", label: "CATÁLOGO", value: "Express · Essencial · Premium" },
-  { num: "§ 02", label: "PACOTES", value: "R$ 1.500 a R$ 9.000" },
+  { num: "§ 02", label: "INVESTIMENTO", value: "Sob consulta" },
   { num: "§ 03", label: "ENTREGA", value: "5 a 28 dias úteis" },
   { num: "§ 04", label: "ATENDIMENTO", value: "Direto" },
 ];

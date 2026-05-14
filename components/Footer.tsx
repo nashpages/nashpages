@@ -8,9 +8,9 @@ const cols: Col[] = [
   {
     title: "PROJETOS",
     items: [
-      { label: "Express  /  R$ 1.500", href: "#pacotes" },
-      { label: "Essencial  /  R$ 2.800 — 3.500", href: "#pacotes" },
-      { label: "Premium  /  R$ 6.500 — 9.000", href: "#pacotes" },
+      { label: "Express", href: "#pacotes" },
+      { label: "Essencial", href: "#pacotes" },
+      { label: "Premium", href: "#pacotes" },
     ],
   },
   {
