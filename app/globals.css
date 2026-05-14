@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Nashpages */
+  --color-tinta: #0E0B0B;
+  --color-papel: #EEE8E0;
+  --color-n1: #6B6660;
+  --color-n2: #C9C2B7;
+  --color-bordo: #5B1F2A;
+  --color-dark-sub: #9A958E;
+  --color-dark-hair: #26221F;
+  --color-light-hair: #C9C2B7;
+
+  /* Easings editoriais */
+  --ease-out-expo: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-cubic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: var(--color-tinta);
+  color: var(--color-papel);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-bordo);
+  color: var(--color-papel);
+}
