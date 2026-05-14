@@ -16,19 +16,16 @@ const cols: Col[] = [
   {
     title: "CONTATO",
     items: [
-      { label: "(11) 9XXXX-XXXX", href: "#contato" },
+      { label: "(49) 98904-0095", href: "https://wa.me/5549989040095" },
       {
-        label: "contato@nashpages.com.br",
-        href: "mailto:contato@nashpages.com.br",
+        label: "nashpages@hotmail.com",
+        href: "mailto:nashpages@hotmail.com",
       },
     ],
   },
   {
     title: "LEGAL",
-    items: [
-      { label: "CNPJ XX.XXX.XXX/0001-XX" },
-      { label: "© 2026 Nashpages" },
-    ],
+    items: [{ label: "© 2026 Nashpages" }],
   },
 ];
 
