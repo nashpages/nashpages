@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { StaggerWords } from "@/components/motion/StaggerWords";
 
 const marginalia = [
   { num: "§ 01", label: "CATÁLOGO", value: "Express · Essencial · Premium" },
@@ -18,16 +19,17 @@ export function Hero() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08}>
-          <h1 className="mt-12 font-sans font-semibold tracking-[-0.03em] leading-[0.98] md:mt-20">
-            <span className="block text-[44px] text-papel md:text-[88px] lg:text-[112px]">
-              Sites bem feitos.
-            </span>
-            <span className="mt-1 block text-[44px] text-n2 md:text-[88px] lg:text-[112px]">
-              Por uma empresa que pensa demais.
-            </span>
-          </h1>
-        </Reveal>
+        <h1 className="mt-12 font-sans font-semibold tracking-[-0.03em] leading-[0.98] md:mt-20">
+          <StaggerWords
+            text="Sites bem feitos."
+            className="block text-[44px] text-papel md:text-[88px] lg:text-[112px]"
+          />
+          <StaggerWords
+            text="Por uma empresa que pensa demais."
+            delayStart={0.2}
+            className="mt-1 block text-[44px] text-n2 md:text-[88px] lg:text-[112px]"
+          />
+        </h1>
 
         <Reveal delay={0.16}>
           <p className="mt-12 max-w-3xl text-base leading-[1.5] text-dark-sub md:mt-16 md:text-lg">

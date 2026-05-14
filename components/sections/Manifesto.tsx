@@ -1,5 +1,6 @@
 import { Logo } from "../Logo";
 import { Reveal } from "@/components/Reveal";
+import { IdleBreathe } from "@/components/motion/IdleBreathe";
 
 const principles = [
   "Stack escolhida pelo projeto.",
@@ -21,15 +22,17 @@ export function Manifesto() {
 
           <Reveal delay={0.08}>
             <div className="mt-12 md:mt-20">
-              <span className="md:hidden">
-                <Logo size={56} />
-              </span>
-              <span className="hidden md:inline-block lg:hidden">
-                <Logo size={120} />
-              </span>
-              <span className="hidden lg:inline-block">
-                <Logo size={200} />
-              </span>
+              <IdleBreathe>
+                <span className="md:hidden">
+                  <Logo size={56} />
+                </span>
+                <span className="hidden md:inline-block lg:hidden">
+                  <Logo size={120} />
+                </span>
+                <span className="hidden lg:inline-block">
+                  <Logo size={200} />
+                </span>
+              </IdleBreathe>
             </div>
           </Reveal>
 

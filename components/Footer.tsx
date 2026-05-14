@@ -1,4 +1,5 @@
 import { Logo } from "./Logo";
+import { Marquee } from "./motion/Marquee";
 
 type ColItem = { label: string; href?: string };
 type Col = { title: string; items: ColItem[] };
@@ -37,12 +38,13 @@ const marqueeText =
 export function Footer() {
   return (
     <footer className="border-t border-dark-hair bg-tinta">
-      {/* Marquee — animação entra na Etapa 4. Por ora, texto duplicado estático. */}
-      <div className="overflow-hidden border-b border-dark-hair py-4">
-        <div className="whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.08em] text-dark-sub">
-          {marqueeText.repeat(6)}
-        </div>
-      </div>
+      {/* Marquee infinito (linear, 40s/ciclo). */}
+      <Marquee
+        text={marqueeText.repeat(2)}
+        speed={40}
+        className="border-b border-dark-hair py-4 font-mono text-[11px] uppercase tracking-[0.08em] text-dark-sub"
+      />
+
 
       {/* Big logo centered */}
       <div className="flex justify-center px-6 py-12 md:py-20">

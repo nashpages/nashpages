@@ -1,6 +1,17 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 
+const EASE = [0.32, 0.72, 0, 1] as const;
+
 export function Contato() {
+  const reduce = useReducedMotion();
+
+  const beganarTransition = reduce
+    ? { duration: 0 }
+    : { duration: 0.7, delay: 0.25, ease: EASE };
+
   return (
     <section id="contato" className="bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
@@ -10,20 +21,36 @@ export function Contato() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08}>
-          <h2 className="mt-6 font-sans text-[64px] font-semibold tracking-[-0.03em] leading-[0.98] md:mt-10 md:text-[144px]">
-            <span className="block text-papel">Vamos</span>
-            <span className="block text-bordo">começar.</span>
-          </h2>
-        </Reveal>
+        <h2 className="mt-6 font-sans text-[64px] font-semibold tracking-[-0.03em] leading-[0.98] md:mt-10 md:text-[144px]">
+          <motion.span
+            className="block text-papel"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px 0px" }}
+            transition={
+              reduce ? { duration: 0 } : { duration: 0.6, ease: EASE }
+            }
+          >
+            Vamos
+          </motion.span>
+          <motion.span
+            className="block text-bordo"
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px 0px" }}
+            transition={beganarTransition}
+          >
+            começar.
+          </motion.span>
+        </h2>
 
-        <Reveal delay={0.16}>
+        <Reveal delay={0.4}>
           <p className="mt-8 max-w-2xl text-base leading-[1.5] text-dark-sub md:mt-12 md:text-lg">
             Call de descoberta gratuita. Proposta em até 48h. Sem compromisso.
           </p>
         </Reveal>
 
-        <Reveal delay={0.24}>
+        <Reveal delay={0.5}>
           <div className="mt-10 flex flex-col gap-3 md:mt-16 md:flex-row md:gap-4">
             <a
               href="https://wa.me/5511999999999"

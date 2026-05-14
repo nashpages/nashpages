@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { HoverLift } from "@/components/motion/HoverLift";
 
 type Pacote = {
   num: string;
@@ -84,7 +85,9 @@ export function Pacotes() {
         <div className="mt-12 flex flex-col gap-4 md:mt-16 md:grid md:grid-cols-3 md:gap-6">
           {pacotes.map((p, i) => (
             <Reveal key={p.name} delay={0.24 + i * 0.08}>
-              <PacoteCard pacote={p} />
+              <HoverLift className="h-full">
+                <PacoteCard pacote={p} />
+              </HoverLift>
             </Reveal>
           ))}
         </div>
