@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { HoverLift } from "@/components/motion/HoverLift";
+import { HapticLink } from "@/components/HapticLink";
 
 type Pacote = {
   num: string;
@@ -148,12 +149,12 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         </ul>
       </div>
 
-      <a
+      <HapticLink
         href="#contato"
-        className={`mt-auto inline-flex items-center justify-center rounded-sm px-4 py-3 font-sans text-sm font-medium transition-colors ${ctaBg}`}
+        className={`mt-auto inline-flex items-center justify-center rounded-sm px-4 py-3 font-sans text-sm font-medium transition-colors active:scale-[0.98] ${ctaBg}`}
       >
         Pedir orçamento  →
-      </a>
+      </HapticLink>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useIsMobile } from "@/lib/useIsMobile";
 
-// Marquee horizontal infinito. Texto duplicado e animado de 0 → -50% pra criar loop seamless.
-// Speed em segundos (duração de uma metade).
+// Marquee horizontal infinito. Texto duplicado e animado de 0 -> -50% pra criar loop seamless.
+// Speed em segundos (duração de uma metade). Mobile usa speed * 1.5 (mais lento, menos cansativo).
 export function Marquee({
   text,
   speed = 40,
@@ -14,6 +15,7 @@ export function Marquee({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
 
   if (reduce) {
     return (
@@ -23,13 +25,15 @@ export function Marquee({
     );
   }
 
+  const actualSpeed = isMobile ? speed * 1.5 : speed;
+
   return (
     <div className={`overflow-hidden ${className ?? ""}`}>
       <motion.div
         className="flex whitespace-nowrap will-change-transform"
         animate={{ x: ["0%", "-50%"] }}
         transition={{
-          duration: speed,
+          duration: actualSpeed,
           repeat: Infinity,
           ease: "linear",
         }}

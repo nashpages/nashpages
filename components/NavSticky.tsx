@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { HapticLink } from "./HapticLink";
 
 const navLinks = [
   { label: "Pacotes", href: "#pacotes" },
@@ -32,12 +33,12 @@ export function NavSticky() {
           ))}
         </nav>
 
-        <a
+        <HapticLink
           href="#contato"
-          className="rounded-sm bg-bordo px-4 py-2 font-sans text-xs font-medium text-papel transition-colors hover:bg-bordo/90 md:px-5 md:py-2.5 md:text-[13px]"
+          className="rounded-sm bg-bordo px-4 py-2 font-sans text-xs font-medium text-papel transition-colors hover:bg-bordo/90 active:scale-[0.97] md:px-5 md:py-2.5 md:text-[13px]"
         >
           Falar
-        </a>
+        </HapticLink>
       </div>
     </header>
   );

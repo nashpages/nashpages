@@ -2,9 +2,11 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 // Wrapper que aplica um respiro idle infinito (scale 1 -> 1.02 -> 1, ~4s).
-// Pra elementos de marca focais (logo Manifesto, etc).
+// Desligado em mobile pra preservar bateria.
+// Desligado em reduced-motion.
 export function IdleBreathe({
   children,
   duration = 4,
@@ -15,8 +17,9 @@ export function IdleBreathe({
   scaleTo?: number;
 }) {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
 
-  if (reduce) return <>{children}</>;
+  if (reduce || isMobile) return <>{children}</>;
 
   return (
     <motion.div

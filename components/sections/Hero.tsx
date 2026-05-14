@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { StaggerWords } from "@/components/motion/StaggerWords";
+import { HapticLink } from "@/components/HapticLink";
 
 const marginalia = [
   { num: "§ 01", label: "CATÁLOGO", value: "Express · Essencial · Premium" },
@@ -43,19 +44,19 @@ export function Hero() {
 
         <Reveal delay={0.24}>
           <div className="mt-10 flex flex-col gap-3 md:mt-12 md:flex-row md:gap-4">
-            <a
+            <HapticLink
               href="#contato"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-bordo px-6 py-4 font-sans text-sm font-medium text-papel transition-colors hover:bg-bordo/90 md:text-[15px]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-bordo px-6 py-4 font-sans text-sm font-medium text-papel transition-colors hover:bg-bordo/90 active:scale-[0.98] md:text-[15px]"
             >
               Conversar pelo WhatsApp
               <span className="text-papel/60">/</span>
-            </a>
-            <a
+            </HapticLink>
+            <HapticLink
               href="#pacotes"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-dark-hair px-6 py-4 font-sans text-sm font-medium text-papel transition-colors hover:border-papel/30 md:text-[15px]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-dark-hair px-6 py-4 font-sans text-sm font-medium text-papel transition-colors hover:border-papel/30 active:scale-[0.98] md:text-[15px]"
             >
               Ver pacotes <span>→</span>
-            </a>
+            </HapticLink>
           </div>
         </Reveal>
 

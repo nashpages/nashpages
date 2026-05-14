@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
+import { HapticLink } from "@/components/HapticLink";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
@@ -52,9 +53,10 @@ export function Contato() {
 
         <Reveal delay={0.5}>
           <div className="mt-10 flex flex-col gap-3 md:mt-16 md:flex-row md:gap-4">
-            <a
+            <HapticLink
               href="https://wa.me/5511999999999"
-              className="flex flex-col items-center justify-center gap-1 rounded-sm bg-bordo px-8 py-6 text-center transition-colors hover:bg-bordo/90 md:flex-1 md:py-8"
+              haptic={[8, 30, 8]}
+              className="flex flex-col items-center justify-center gap-1 rounded-sm bg-bordo px-8 py-6 text-center transition-colors hover:bg-bordo/90 active:scale-[0.98] md:flex-1 md:py-8"
             >
               <span className="font-sans text-lg font-semibold tracking-[-0.01em] text-papel md:text-xl">
                 Falar no WhatsApp
@@ -62,10 +64,10 @@ export function Contato() {
               <span className="font-mono text-[11px] tracking-[0.04em] text-papel/70">
                 (11) 9XXXX-XXXX
               </span>
-            </a>
-            <a
+            </HapticLink>
+            <HapticLink
               href="mailto:contato@nashpages.com.br"
-              className="flex flex-col items-center justify-center gap-1 rounded-sm border border-dark-hair px-8 py-6 text-center transition-colors hover:border-papel/30 md:flex-1 md:py-8"
+              className="flex flex-col items-center justify-center gap-1 rounded-sm border border-dark-hair px-8 py-6 text-center transition-colors hover:border-papel/30 active:scale-[0.98] md:flex-1 md:py-8"
             >
               <span className="font-sans text-sm font-medium text-papel md:text-base">
                 Por email
@@ -73,7 +75,7 @@ export function Contato() {
               <span className="font-mono text-[11px] tracking-[0.04em] text-dark-sub">
                 contato@nashpages.com.br
               </span>
-            </a>
+            </HapticLink>
           </div>
         </Reveal>
       </div>
