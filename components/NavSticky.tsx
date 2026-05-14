@@ -21,7 +21,10 @@ export function NavSticky() {
           <Logo size={20} />
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav
+          aria-label="Navegação principal"
+          className="hidden items-center gap-10 md:flex"
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}

@@ -37,13 +37,19 @@ const marqueeText =
 
 export function Footer() {
   return (
-    <footer className="border-t border-dark-hair bg-tinta">
-      {/* Marquee infinito (linear, 40s/ciclo). */}
-      <Marquee
-        text={marqueeText.repeat(2)}
-        speed={40}
-        className="border-b border-dark-hair py-4 font-mono text-[11px] uppercase tracking-[0.08em] text-dark-sub"
-      />
+    <footer className="border-t border-dark-hair bg-tinta" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Rodapé
+      </h2>
+
+      {/* Marquee infinito (linear, 40s/ciclo) — decorativo. */}
+      <div aria-hidden="true">
+        <Marquee
+          text={marqueeText.repeat(2)}
+          speed={40}
+          className="border-b border-dark-hair py-4 font-mono text-[11px] uppercase tracking-[0.08em] text-dark-sub"
+        />
+      </div>
 
 
       {/* Big logo centered */}

@@ -82,10 +82,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-tinta text-papel antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-bordo focus:px-4 focus:py-2 focus:text-sm focus:text-papel"
+        >
+          Pular para o conteúdo
+        </a>
         <SmoothScroll />
         <ScrollProgress />
         <NavSticky />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

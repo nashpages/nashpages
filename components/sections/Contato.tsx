@@ -55,6 +55,9 @@ export function Contato() {
           <div className="mt-10 flex flex-col gap-3 md:mt-16 md:flex-row md:gap-4">
             <HapticLink
               href="https://wa.me/5511999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Falar com a Nashpages no WhatsApp (abre em nova aba)"
               haptic={[8, 30, 8]}
               className="flex flex-col items-center justify-center gap-1 rounded-sm bg-bordo px-8 py-6 text-center transition-colors hover:bg-bordo/90 active:scale-[0.98] md:flex-1 md:py-8"
             >
