@@ -15,7 +15,7 @@ export function Manifesto() {
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
         <div className="flex flex-col items-center text-center">
           <Reveal>
-            <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo-light md:text-[11px]">
               § 02  /  MANIFESTO
             </p>
           </Reveal>
@@ -40,7 +40,10 @@ export function Manifesto() {
             {principles.map((p, i) => (
               <Reveal key={p} delay={0.16 + i * 0.06}>
                 <li className="flex items-baseline gap-3 text-left md:gap-4">
-                  <span className="font-sans text-xl font-medium text-bordo md:text-2xl">
+                  <span
+                    aria-hidden="true"
+                    className="font-sans text-xl font-medium text-bordo-light md:text-2xl"
+                  >
                     /
                   </span>
                   <span className="font-sans text-base text-papel md:text-xl">

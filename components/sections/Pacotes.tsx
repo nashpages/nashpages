@@ -107,11 +107,13 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
   const ctaBg = isDark
     ? "bg-papel text-tinta hover:bg-papel/90"
     : "bg-tinta text-papel hover:bg-tinta/90";
+  // bordô puro só passa contrast em bg-papel. Em bg-tinta (Premium) usa bordo-light.
+  const accent = isDark ? "text-bordo-light" : "text-bordo";
 
   return (
     <div className={`flex h-full flex-col gap-6 rounded-sm p-6 md:p-8 ${cardBg}`}>
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] tracking-[0.06em] text-bordo">
+        <span className={`font-mono text-[11px] tracking-[0.06em] ${accent}`}>
           {pacote.num}
         </span>
         <span className={`font-mono text-[10px] tracking-[0.06em] ${subColor}`}>
@@ -123,26 +125,28 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         <h3 className="font-sans text-3xl font-semibold tracking-[-0.02em] leading-none">
           {pacote.name}
         </h3>
-        <p className="font-mono text-sm text-bordo">{pacote.price}</p>
+        <p className={`font-mono text-sm ${accent}`}>{pacote.price}</p>
       </div>
 
       <div className={`h-px w-full border-t ${hairColor}`} />
 
       <div>
-        <p className="font-mono text-[9px] uppercase tracking-[0.08em] text-bordo">
+        <p className={`font-mono text-[9px] uppercase tracking-[0.08em] ${accent}`}>
           IDEAL PARA
         </p>
         <p className="mt-2 text-sm leading-[1.5]">{pacote.ideal}</p>
       </div>
 
       <div>
-        <p className="font-mono text-[9px] uppercase tracking-[0.08em] text-bordo">
+        <p className={`font-mono text-[9px] uppercase tracking-[0.08em] ${accent}`}>
           ENTREGÁVEIS
         </p>
         <ul className="mt-3 flex flex-col gap-2.5">
           {pacote.deliverables.map((d) => (
             <li key={d} className="flex items-start gap-2.5 text-sm">
-              <span className="font-medium text-bordo">/</span>
+              <span aria-hidden="true" className={`font-medium ${accent}`}>
+                /
+              </span>
               <span>{d}</span>
             </li>
           ))}

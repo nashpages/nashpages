@@ -43,7 +43,7 @@ export function FAQ() {
     <section id="faq" className="border-b border-dark-hair bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
         <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo-light md:text-[11px]">
             § 06  /  DÚVIDAS COMUNS
           </p>
         </Reveal>
@@ -67,7 +67,7 @@ export function FAQ() {
                     aria-expanded={isOpen}
                   >
                     <span className="flex flex-col gap-2 md:flex-row md:items-baseline md:gap-6">
-                      <span className="font-mono text-[10px] tracking-[0.06em] text-bordo md:w-16">
+                      <span className="font-mono text-[10px] tracking-[0.06em] text-bordo-light md:w-16">
                         § 06.{i + 1}
                       </span>
                       <span className="font-sans text-base font-semibold leading-[1.3] text-papel md:text-xl">

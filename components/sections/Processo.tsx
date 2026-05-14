@@ -45,7 +45,7 @@ export function Processo() {
     <section id="processo" className="border-b border-dark-hair bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
         <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo-light md:text-[11px]">
             § 04  /  WORKFLOW
           </p>
         </Reveal>
@@ -70,7 +70,7 @@ export function Processo() {
                 <div className="h-px w-full border-t border-dark-hair" />
 
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-[0.06em] text-bordo">
+                  <span className="font-mono text-[11px] tracking-[0.06em] text-bordo-light">
                     {step.num}
                   </span>
                   <span className="font-mono text-[10px] tracking-[0.06em] text-dark-sub">

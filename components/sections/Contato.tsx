@@ -17,7 +17,7 @@ export function Contato() {
     <section id="contato" className="bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
         <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo-light md:text-[11px]">
             § 07  /  CONTATO
           </p>
         </Reveal>
@@ -35,7 +35,7 @@ export function Contato() {
             Vamos
           </motion.span>
           <motion.span
-            className="block text-bordo"
+            className="block text-bordo-light"
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-80px 0px" }}

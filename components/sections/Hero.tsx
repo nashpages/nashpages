@@ -14,8 +14,8 @@ export function Hero() {
     <section className="border-b border-dark-hair bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 pb-20 pt-16 md:px-20 md:pb-32 md:pt-24">
         <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
-            <span className="text-bordo">/</span>
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo-light md:text-[11px]">
+            <span className="text-bordo-light">/</span>
             <span className="ml-3 text-dark-sub">EMPRESA  ·  EST. 2026</span>
           </p>
         </Reveal>
@@ -64,7 +64,7 @@ export function Hero() {
           <div className="mt-20 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-dark-hair pt-8 md:mt-32 md:grid-cols-4 md:gap-x-10">
             {marginalia.map((item) => (
               <div key={item.label}>
-                <p className="font-mono text-[10px] tracking-[0.08em] text-bordo">
+                <p className="font-mono text-[10px] tracking-[0.08em] text-bordo-light">
                   {item.num}
                 </p>
                 <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-dark-sub">
