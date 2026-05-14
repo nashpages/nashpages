@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Reveal } from "@/components/Reveal";
 
 type FaqItem = { q: string; a: string };
 
@@ -31,59 +33,86 @@ const items: FaqItem[] = [
   },
 ];
 
+const EASE = [0.32, 0.72, 0, 1] as const;
+
 export function FAQ() {
-  // Default state: all closed on mobile, todos abertos no desktop pra leitura imediata.
-  // Animação de transição entra na Etapa 4 — por enquanto só toggle visual.
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const reduce = useReducedMotion();
 
   return (
     <section id="faq" className="border-b border-dark-hair bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
-        {/* Eyebrow */}
-        <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
-          § 06  /  DÚVIDAS COMUNS
-        </p>
+        <Reveal>
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+            § 06  /  DÚVIDAS COMUNS
+          </p>
+        </Reveal>
 
-        {/* Title */}
-        <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-papel md:mt-10 md:text-[88px]">
-          Antes de você perguntar.
-        </h2>
+        <Reveal delay={0.06}>
+          <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-papel md:mt-10 md:text-[88px]">
+            Antes de você perguntar.
+          </h2>
+        </Reveal>
 
-        {/* List */}
-        <ul className="mt-12 md:mt-16">
-          {items.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <li key={item.q} className="border-t border-dark-hair">
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-start justify-between gap-4 py-6 text-left md:py-8"
-                >
-                  <span className="flex flex-col gap-2 md:flex-row md:items-baseline md:gap-6">
-                    <span className="font-mono text-[10px] tracking-[0.06em] text-bordo md:w-16">
-                      § 06.{i + 1}
+        <Reveal delay={0.12}>
+          <ul className="mt-12 md:mt-16">
+            {items.map((item, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <li key={item.q} className="border-t border-dark-hair">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    className="flex w-full items-start justify-between gap-4 py-6 text-left md:py-8"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="flex flex-col gap-2 md:flex-row md:items-baseline md:gap-6">
+                      <span className="font-mono text-[10px] tracking-[0.06em] text-bordo md:w-16">
+                        § 06.{i + 1}
+                      </span>
+                      <span className="font-sans text-base font-semibold leading-[1.3] text-papel md:text-xl">
+                        {item.q}
+                      </span>
                     </span>
-                    <span className="font-sans text-base font-semibold leading-[1.3] text-papel md:text-xl">
-                      {item.q}
-                    </span>
-                  </span>
-                  <span className="mt-0.5 shrink-0 font-sans text-2xl font-medium text-dark-sub md:text-3xl">
-                    {isOpen ? "−" : "+"}
-                  </span>
-                </button>
-                {isOpen && (
-                  <div className="pb-6 md:pb-8 md:pl-[5.5rem]">
-                    <p className="max-w-3xl text-sm leading-[1.6] text-dark-sub md:text-[15px]">
-                      {item.a}
-                    </p>
-                  </div>
-                )}
-              </li>
-            );
-          })}
-          <li className="border-t border-dark-hair" />
-        </ul>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{
+                        duration: reduce ? 0 : 0.32,
+                        ease: EASE,
+                      }}
+                      className="mt-0.5 inline-block shrink-0 font-sans text-2xl font-medium text-dark-sub md:text-3xl"
+                    >
+                      +
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          duration: reduce ? 0 : 0.4,
+                          ease: EASE,
+                        }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <div className="pb-6 md:pb-8 md:pl-[5.5rem]">
+                          <p className="max-w-3xl text-sm leading-[1.6] text-dark-sub md:text-[15px]">
+                            {item.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </li>
+              );
+            })}
+            <li className="border-t border-dark-hair" />
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

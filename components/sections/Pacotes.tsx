@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+
 type Pacote = {
   num: string;
   name: string;
@@ -59,27 +61,31 @@ export function Pacotes() {
       className="border-b border-light-hair bg-papel text-tinta"
     >
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
-        {/* Eyebrow */}
-        <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
-          § 03  /  PACOTES
-        </p>
+        <Reveal>
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+            § 03  /  PACOTES
+          </p>
+        </Reveal>
 
-        {/* Title */}
-        <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-tinta md:mt-10 md:text-[88px]">
-          Três pacotes.
-        </h2>
+        <Reveal delay={0.08}>
+          <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-tinta md:mt-10 md:text-[88px]">
+            Três pacotes.
+          </h2>
+        </Reveal>
 
-        {/* Sub */}
-        <p className="mt-6 max-w-2xl text-base leading-[1.5] text-n1 md:text-lg">
-          Stack escolhida pelo projeto, não pelo preço. Express adapta template
-          pra negócio local. Essencial é design original. Premium é site
-          institucional codado do zero.
-        </p>
+        <Reveal delay={0.16}>
+          <p className="mt-6 max-w-2xl text-base leading-[1.5] text-n1 md:text-lg">
+            Stack escolhida pelo projeto, não pelo preço. Express adapta
+            template pra negócio local. Essencial é design original. Premium é
+            site institucional codado do zero.
+          </p>
+        </Reveal>
 
-        {/* Cards */}
         <div className="mt-12 flex flex-col gap-4 md:mt-16 md:grid md:grid-cols-3 md:gap-6">
-          {pacotes.map((p) => (
-            <PacoteCard key={p.name} pacote={p} />
+          {pacotes.map((p, i) => (
+            <Reveal key={p.name} delay={0.24 + i * 0.08}>
+              <PacoteCard pacote={p} />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -89,7 +95,9 @@ export function Pacotes() {
 
 function PacoteCard({ pacote }: { pacote: Pacote }) {
   const isDark = pacote.dark;
-  const cardBg = isDark ? "bg-tinta text-papel" : "bg-papel text-tinta border border-tinta";
+  const cardBg = isDark
+    ? "bg-tinta text-papel"
+    : "bg-papel text-tinta border border-tinta";
   const subColor = isDark ? "text-dark-sub" : "text-n1";
   const hairColor = isDark ? "border-dark-hair" : "border-light-hair";
   const ctaBg = isDark
@@ -97,8 +105,7 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
     : "bg-tinta text-papel hover:bg-tinta/90";
 
   return (
-    <div className={`flex flex-col gap-6 rounded-sm p-6 md:p-8 ${cardBg}`}>
-      {/* Top: num + time */}
+    <div className={`flex h-full flex-col gap-6 rounded-sm p-6 md:p-8 ${cardBg}`}>
       <div className="flex items-center justify-between">
         <span className="font-mono text-[11px] tracking-[0.06em] text-bordo">
           {pacote.num}
@@ -108,7 +115,6 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         </span>
       </div>
 
-      {/* Name + price */}
       <div className="flex flex-col gap-2">
         <h3 className="font-sans text-3xl font-semibold tracking-[-0.02em] leading-none">
           {pacote.name}
@@ -116,10 +122,8 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         <p className="font-mono text-sm text-bordo">{pacote.price}</p>
       </div>
 
-      {/* Hair */}
       <div className={`h-px w-full border-t ${hairColor}`} />
 
-      {/* Ideal */}
       <div>
         <p className="font-mono text-[9px] uppercase tracking-[0.08em] text-bordo">
           IDEAL PARA
@@ -127,7 +131,6 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         <p className="mt-2 text-sm leading-[1.5]">{pacote.ideal}</p>
       </div>
 
-      {/* Deliverables */}
       <div>
         <p className="font-mono text-[9px] uppercase tracking-[0.08em] text-bordo">
           ENTREGÁVEIS
@@ -142,7 +145,6 @@ function PacoteCard({ pacote }: { pacote: Pacote }) {
         </ul>
       </div>
 
-      {/* CTA */}
       <a
         href="#contato"
         className={`mt-auto inline-flex items-center justify-center rounded-sm px-4 py-3 font-sans text-sm font-medium transition-colors ${ctaBg}`}

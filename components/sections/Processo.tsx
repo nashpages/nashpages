@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+
 type Step = {
   num: string;
   duration: string;
@@ -42,49 +44,49 @@ export function Processo() {
   return (
     <section id="processo" className="border-b border-dark-hair bg-tinta">
       <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-20 md:py-40">
-        {/* Eyebrow */}
-        <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
-          § 04  /  WORKFLOW
-        </p>
+        <Reveal>
+          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-bordo md:text-[11px]">
+            § 04  /  WORKFLOW
+          </p>
+        </Reveal>
 
-        {/* Title */}
-        <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-papel md:mt-10 md:text-[88px]">
-          Como trabalhamos.
-        </h2>
+        <Reveal delay={0.08}>
+          <h2 className="mt-6 font-sans text-[44px] font-semibold tracking-[-0.03em] leading-[0.98] text-papel md:mt-10 md:text-[88px]">
+            Como trabalhamos.
+          </h2>
+        </Reveal>
 
-        {/* Sub */}
-        <p className="mt-6 max-w-2xl text-base leading-[1.5] text-dark-sub md:text-lg">
-          Sem mistério, sem promessa milagrosa. Cada etapa tem entregável claro
-          e duração definida. Você nunca fica sem saber em que pé está.
-        </p>
+        <Reveal delay={0.16}>
+          <p className="mt-6 max-w-2xl text-base leading-[1.5] text-dark-sub md:text-lg">
+            Sem mistério, sem promessa milagrosa. Cada etapa tem entregável
+            claro e duração definida. Você nunca fica sem saber em que pé está.
+          </p>
+        </Reveal>
 
-        {/* Steps */}
         <div className="mt-16 flex flex-col gap-12 md:mt-24 md:gap-16">
-          {steps.map((step) => (
-            <div key={step.num} className="flex flex-col gap-4">
-              {/* Hair */}
-              <div className="h-px w-full border-t border-dark-hair" />
+          {steps.map((step, i) => (
+            <Reveal key={step.num} delay={0.05 * i}>
+              <div className="flex flex-col gap-4">
+                <div className="h-px w-full border-t border-dark-hair" />
 
-              {/* Top row: num + duration */}
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] tracking-[0.06em] text-bordo">
-                  {step.num}
-                </span>
-                <span className="font-mono text-[10px] tracking-[0.06em] text-dark-sub">
-                  {step.duration}
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] tracking-[0.06em] text-bordo">
+                    {step.num}
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.06em] text-dark-sub">
+                    {step.duration}
+                  </span>
+                </div>
+
+                <h3 className="font-sans text-3xl font-semibold tracking-[-0.02em] leading-none text-papel md:text-5xl">
+                  {step.title}
+                </h3>
+
+                <p className="max-w-3xl text-sm leading-[1.6] text-dark-sub md:text-base">
+                  {step.body}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3 className="font-sans text-3xl font-semibold tracking-[-0.02em] leading-none text-papel md:text-5xl">
-                {step.title}
-              </h3>
-
-              {/* Body */}
-              <p className="max-w-3xl text-sm leading-[1.6] text-dark-sub md:text-base">
-                {step.body}
-              </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

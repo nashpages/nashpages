@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { NavSticky } from "@/components/NavSticky";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col bg-tinta text-papel antialiased">
         <SmoothScroll />
+        <ScrollProgress />
         <NavSticky />
         <main className="flex-1">{children}</main>
         <Footer />
