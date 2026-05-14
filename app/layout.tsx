@@ -16,11 +16,59 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://nashpages.com.br";
+const SITE_NAME = "Nashpages";
+const SITE_TITLE = "Nashpages — sites bem feitos";
+const SITE_DESCRIPTION =
+  "Empresa de design e desenvolvimento de sites editoriais. Stack escolhida pelo projeto. Atendimento direto. Cronograma fixo.";
+
 export const metadata: Metadata = {
-  title: "Nashpages — sites bem feitos",
-  description:
-    "Empresa de design e desenvolvimento de sites editoriais. Stack escolhida pelo projeto. Atendimento direto. Cronograma fixo.",
-  metadataBase: new URL("https://nashpages.com.br"),
+  title: {
+    default: SITE_TITLE,
+    template: "%s · Nashpages",
+  },
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  keywords: [
+    "site editorial",
+    "design de site",
+    "desenvolvimento next.js",
+    "framer site",
+    "site institucional",
+    "site para clínica",
+    "site para profissional",
+    "Nashpages",
+  ],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  category: "design",
 };
 
 export default function RootLayout({
