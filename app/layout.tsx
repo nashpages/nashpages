@@ -1,26 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond, Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { NavSticky } from "@/components/NavSticky";
-import { Footer } from "@/components/Footer";
-import { ScrollProgress } from "@/components/ScrollProgress";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+});
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+});
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+});
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const SITE_URL = "https://nashpages.com.br";
 const SITE_NAME = "Nashpages";
-const SITE_TITLE = "Nashpages — sites bem feitos";
+const SITE_TITLE = "Nashpages — Portfólio";
 const SITE_DESCRIPTION =
-  "Empresa de design e desenvolvimento de sites editoriais. Stack escolhida pelo projeto. Atendimento direto. Cronograma fixo.";
+  "Trabalhos selecionados da Nashpages — sites editoriais sob medida.";
 
 export const metadata: Metadata = {
   title: {
@@ -30,16 +45,6 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
-  keywords: [
-    "site editorial",
-    "design de site",
-    "desenvolvimento next.js",
-    "framer site",
-    "site institucional",
-    "site para clínica",
-    "site para profissional",
-    "Nashpages",
-  ],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -79,22 +84,10 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${cormorant.variable} ${inter.variable} ${fraunces.variable}`}
     >
-      <body className="flex min-h-screen flex-col bg-tinta text-papel antialiased">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-bordo focus:px-4 focus:py-2 focus:text-sm focus:text-papel"
-        >
-          Pular para o conteúdo
-        </a>
-        <SmoothScroll />
-        <ScrollProgress />
-        <NavSticky />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen bg-white text-[#0E0B0B] antialiased">
+        {children}
       </body>
     </html>
   );

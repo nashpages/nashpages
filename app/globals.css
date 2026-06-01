@@ -19,7 +19,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -30,8 +30,8 @@
 
 html,
 body {
-  background: var(--color-tinta);
-  color: var(--color-papel);
+  background: #ffffff;
+  color: #0e0b0b;
 }
 
 body {
@@ -54,12 +54,6 @@ body {
 ::selection {
   background: var(--color-bordo);
   color: var(--color-papel);
-}
-
-/* Containment de sections — isola repaints. Cada section anima sem invalidar layout das outras.
-   `layout` + `paint` são seguros aqui (nada dentro de section é position:fixed que precisa transbordar). */
-main > section {
-  contain: layout paint;
 }
 
 /* Page-load fade-in. Respeita reduced-motion via media query acima. */
